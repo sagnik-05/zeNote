@@ -1,12 +1,15 @@
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-export default function Home()
+import { Heading } from "./_components/heading";
+import { Heroes } from "./_components/heroes";
+const MarketingPage = ()=>{
 {
   return (
-    <div className='flex item-center justify-center'>
-      <Button className='hover:bg-cyan-600 duration-300'>
-        Click it
-      </Button>
+    <div className=' min-h-full flex flex-col'>
+      <div className='flex flex-col items-center justify-center md:justify-start text-center gap-y-8 flex-1 px-6 pb-10'>
+        <Heading/>
+        <Heroes/>
+      </div>
     </div>
   )
 }
+}
+export default MarketingPage;
