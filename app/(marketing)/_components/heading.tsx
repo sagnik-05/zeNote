@@ -5,7 +5,7 @@ export const Heading = () => {
     return ( 
         <div className="max-w-3xl space-y-4 ">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
-                Your Ideas, Docs and palns. Unified. Welcome to <span className="underline">ZeNote</span> 
+                Your Ideas, Docs and plans. Unified. Welcome to <span className="underline">ZeNote</span> 
             </h1>
             <h3>
                 zeNote is the connected workspace where <br/>
