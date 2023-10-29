@@ -19,8 +19,8 @@ export const Logo = () =>
         alt="Logo"
         className=" dark:hidden md:flex"
       />
-       <Image
-        src="logo-dark.svg"
+      <Image
+        src="/logo-dark.png"
         height={40}
         width={40}
         alt="Logo"
