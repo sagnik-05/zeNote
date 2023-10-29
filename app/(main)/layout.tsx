@@ -1,6 +1,6 @@
 "use client";
 import { useConvexAuth } from "convex/react";
-
+import { Toaster } from "sonner";
 import { Spinner } from "@/components/spinner";
 import { redirect } from "next/navigation";
 
@@ -34,6 +34,7 @@ const MainLayout = ({
     <div className="h-full flex dark:bg-[#1F1F1F]">
       <Navigation />
       <main className='flex-1 h-full overflow-y-auto'>
+        <Toaster position="bottom-center" />
         {children}
       </main>
     </div>
