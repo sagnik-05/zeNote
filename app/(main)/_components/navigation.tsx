@@ -25,6 +25,7 @@ import { Item } from "./item";
 import { UserItem } from "./userItem";
 import { toast } from "sonner";
 import { DocumentList } from './document-list';
+import { TrashBox } from "./trash-box";
 
 
 export const Navigation = () =>
@@ -189,7 +190,7 @@ export const Navigation = () =>
               />
             </PopoverTrigger>
             <PopoverContent className="p-0 w-72" side={isMobile ? "bottom": "right"}>
-              <p>Trash Can</p>
+              <TrashBox/>
             </PopoverContent>
           </Popover>
         </div>
