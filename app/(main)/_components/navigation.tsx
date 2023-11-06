@@ -11,15 +11,19 @@ import
   Settings,
   Trash
 } from "lucide-react";
-import { Popover,
-        PopoverTrigger,
-        PopoverContent
-      } from "@/components/ui/popover";  
+import
+{
+  Popover,
+  PopoverTrigger,
+  PopoverContent
+} from "@/components/ui/popover";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from 'usehooks-ts';
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { useSearch } from "@/hooks/use-search";
+import { useSettings } from "@/hooks/use-settings";
 
 import { Item } from "./item";
 import { UserItem } from "./userItem";
@@ -30,6 +34,8 @@ import { TrashBox } from "./trash-box";
 
 export const Navigation = () =>
 {
+  const search = useSearch();
+  const settings = useSettings();
   const pathname = usePathname();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const create = useMutation(api.documents.create);
@@ -162,12 +168,12 @@ export const Navigation = () =>
             label="Search"
             icon={Search}
             isSearch
-            onClick={() => { }}
+            onClick={search.onOpen}
           />
           <Item
             label="Setting"
             icon={Settings}
-            onClick={() => { }}
+            onClick={settings.onOpen}
           />
           <Item
             onClick={handleCreate}
@@ -189,8 +195,8 @@ export const Navigation = () =>
                 icon={Trash}
               />
             </PopoverTrigger>
-            <PopoverContent className="p-0 w-72" side={isMobile ? "bottom": "right"}>
-              <TrashBox/>
+            <PopoverContent className="p-0 w-72" side={isMobile ? "bottom" : "right"}>
+              <TrashBox />
             </PopoverContent>
           </Popover>
         </div>
