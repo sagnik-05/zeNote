@@ -171,7 +171,7 @@ export const Navigation = () =>
             onClick={search.onOpen}
           />
           <Item
-            label="Setting"
+            label="Settings"
             icon={Settings}
             onClick={settings.onOpen}
           />

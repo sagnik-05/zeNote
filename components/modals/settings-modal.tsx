@@ -20,7 +20,7 @@ export const SettingsModal = () =>
       <DialogContent>
         <DialogHeader className='border-b pb-3'>
           <h2 className='text-lg font-medium'>
-            My setting
+            My Settings
           </h2>
         </DialogHeader>
         <div className='flex items-center justify-between'>
