@@ -17,7 +17,7 @@ import
   PopoverTrigger,
   PopoverContent
 } from "@/components/ui/popover";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from 'usehooks-ts';
 import { useMutation } from "convex/react";
@@ -30,12 +30,14 @@ import { UserItem } from "./userItem";
 import { toast } from "sonner";
 import { DocumentList } from './document-list';
 import { TrashBox } from "./trash-box";
+import Navbar from "./navbar";
 
 
 export const Navigation = () =>
 {
   const search = useSearch();
   const settings = useSettings();
+  const params = useParams();
   const pathname = usePathname();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const create = useMutation(api.documents.create);
@@ -215,11 +217,17 @@ export const Navigation = () =>
           isMobile && "left-0 w-full"
         )}
       >
+        {!!params.documentId ?(
+          <Navbar
+          isCollapsed = {isCollapsed}
+          onResetWidth={resetWidth}
+          />
+        ):(
         <nav className='bg-transparent px-3 py-2 w-full'>
           {isCollapsed && <MenuIcon onClick={resetWidth} role="button"
             className="h-6 w-6 text-muted-foreground" />}
         </nav>
-
+        )}
       </div>
     </>
   )
