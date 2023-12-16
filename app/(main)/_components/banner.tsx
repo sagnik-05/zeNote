@@ -6,18 +6,20 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { ConfirmModal } from "@/components/modals/confirm-modal";
-interface BannerProps{
+interface BannerProps
+{
     documentId: Id<"documents">;
 }
 const Banner = (
-    {documentId}: BannerProps) =>
-    {
+    { documentId }: BannerProps) =>
+{
     const router = useRouter();
     const remove = useMutation(api.documents.remove);
     const restore = useMutation(api.documents.restore)
-    const onRemove = () =>{
-        const promise = remove({id : documentId});
-        toast.promise(promise,{
+    const onRemove = () =>
+    {
+        const promise = remove({ id: documentId });
+        toast.promise(promise, {
             loading: "Deleting Note...",
             success: "Note deleted",
             error: "Failed to delete note"
@@ -26,17 +28,18 @@ const Banner = (
         router.push("/documents")
 
     }
-    const onRestore = () =>{
-        const promise = restore({id : documentId});
-        toast.promise(promise,{
+    const onRestore = () =>
+    {
+        const promise = restore({ id: documentId });
+        toast.promise(promise, {
             loading: "Restoring Note...",
             success: "Note restored",
             error: "Failed to restore note"
         });
 
     }
-    return ( 
-        <div className=" w-full bg-rose-500 text-center text-sm p-2 text-white flex items-center gap-x-2 justify-center">
+    return (
+        <div className="w-full bg-rose-500 text-center text-sm p-2 text-white flex items-center gap-x-2 justify-center">
             <p>
                 This page is in Trash
             </p>
@@ -44,21 +47,21 @@ const Banner = (
                 size="sm"
                 variant="outline"
                 onClick={onRestore}
-                className=" border-white bg-transparent hover:bg-primary/5 text-white hover:text-white p-1 px-2 h-auto font-normal"
+                className="border-white bg-transparent hover:bg-primary/5 text-white hover:text-white p-1 px-2 h-auto font-normal"
             >
                 Restore Page
             </Button>
             <ConfirmModal onConfirm={onRemove}>
-            <Button
-                size="sm"
-                variant="outline"
-                className=" border-white bg-transparent hover:bg-primary/5 text-white hover:text-white p-1 px-2 h-auto font-normal"
-            >
-                Delete Page
-            </Button>
+                <Button
+                    size="sm"
+                    variant="outline"
+                    className="border-white bg-transparent hover:bg-primary/5 text-white hover:text-white p-1 px-2 h-auto font-normal"
+                >
+                    Delete Page
+                </Button>
             </ConfirmModal>
         </div>
-     );
+    );
 }
- 
+
 export default Banner;
