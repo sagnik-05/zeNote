@@ -15,7 +15,7 @@ export const Heading = () => {
       </h1>
       <h3>
         zeNote is the connected workspace where <br />
-        better, faster work happerns.
+        better, faster work happens.
       </h3>
       {isLoading && (
         <div className="w-full flex items-center justify-center ">
